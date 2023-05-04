@@ -1,5 +1,7 @@
 package com.masaischool.productManagementSystem.daoImpl;
 
-public class CartDaoImpl {
+import com.masaischool.productManagementSystem.dao.CartDao;
+
+public class CartDaoImpl implements CartDao{
 
 }

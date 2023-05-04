@@ -1,5 +1,5 @@
 package com.masaischool.productManagementSystem.dao;
 
-public class AdminDao {
+public interface AdminDao {
 
 }

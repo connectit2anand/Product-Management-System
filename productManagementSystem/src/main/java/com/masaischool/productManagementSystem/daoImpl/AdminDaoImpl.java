@@ -1,5 +1,7 @@
 package com.masaischool.productManagementSystem.daoImpl;
 
-public class AdminDaoImpl {
+import com.masaischool.productManagementSystem.dao.AdminDao;
+
+public class AdminDaoImpl implements AdminDao{
 
 }
