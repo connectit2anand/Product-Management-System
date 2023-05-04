@@ -12,7 +12,6 @@ public class App
 {
     public static void main( String[] args )
     {
-    	EntityManager em = DbUtils.getEntityManager();
         System.out.println( "Welcome To Product Management System." );
     }
 }
