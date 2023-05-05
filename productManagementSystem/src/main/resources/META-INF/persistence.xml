@@ -6,6 +6,7 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
     <persistence-unit name="projectConnect">
 		<properties>
+<!--			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />-->
 		    <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 		    <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/productManagementProject" />
 		    <property name="jakarta.persistence.jdbc.user" value="root" />

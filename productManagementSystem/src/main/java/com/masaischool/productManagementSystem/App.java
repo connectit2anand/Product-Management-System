@@ -1,17 +1,15 @@
 package com.masaischool.productManagementSystem;
 
-import com.masaischool.productManagementSystem.utils.DbUtils;
-
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Welcome To Product Management System." );
+//        System.out.println("Hello world");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("projectConnect");
+        EntityManager em =  emf.createEntityManager();
     }
 }

@@ -1,5 +1,7 @@
 package com.masaischool.productManagementSystem.dao;
 
-public class UserDao {
+import com.masaischool.productManagementSystem.entity.User;
 
+public interface UserDao {
+    public User getUserByUserName(String userName);
 }

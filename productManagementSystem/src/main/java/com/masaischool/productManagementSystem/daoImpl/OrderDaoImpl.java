@@ -1,5 +1,7 @@
 package com.masaischool.productManagementSystem.daoImpl;
 
-public class OrderDaoImpl {
+import com.masaischool.productManagementSystem.dao.OrderDao;
+
+public class OrderDaoImpl implements OrderDao {
 
 }

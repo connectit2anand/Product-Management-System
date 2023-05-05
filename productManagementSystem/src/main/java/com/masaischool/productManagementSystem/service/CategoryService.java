@@ -1,5 +1,9 @@
 package com.masaischool.productManagementSystem.service;
 
-public interface CategoryService {
+import java.util.List;
 
+import com.masaischool.productManagementSystem.entity.Product;
+
+public interface CategoryService {
+	public List<Product> viewAllProducts(String catName);
 }
