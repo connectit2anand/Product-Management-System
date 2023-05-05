@@ -1,5 +1,7 @@
 package com.masaischool.productManagementSystem.daoImpl;
 
-public class CategoryDaoImpl {
+import com.masaischool.productManagementSystem.dao.CategoryDao;
+
+public class CategoryDaoImpl implements CategoryDao{
 
 }
