@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "product_id")
+
 	private int productId;
-	@Column(name = "product_name")
+
 	private String productName;
 	private double price;
 	private String color;
@@ -22,12 +22,16 @@ public class Product {
 	private String manufacturer;
 	private int quantity;
 	@ManyToOne
-	@JoinColumn(name="category_id")
-	private Category category;
-	@ManyToOne
-	private Orders order;
+	@JoinColumn(name = "category_id")
+	Category category;
 
-	@ManyToOne
-	private Cart cart;
 
+	public Product(String productName, double price, String color, String specification, String manufacturer, int quantity) {
+		this.productName = productName;
+		this.price = price;
+		this.color = color;
+		this.specification = specification;
+		this.manufacturer = manufacturer;
+		this.quantity = quantity;
+	}
 }

@@ -1,6 +1,7 @@
 package com.masaischool.productManagementSystem.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.*;
@@ -16,12 +17,13 @@ public class Orders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
-	private LocalDate date;
-	private String orderStatus;
+	private LocalDate orderDate;
+
 	@ManyToOne
-	@JoinColumn(name="customer_id")
+	@JoinColumn(name = "curstomer_id")
 	private Customer customer;
-	@OneToMany
-	private Set<Product> productList;
+	private int productId;
+	private int quantity;
+	private int totalOrderPrice;
 
 }
