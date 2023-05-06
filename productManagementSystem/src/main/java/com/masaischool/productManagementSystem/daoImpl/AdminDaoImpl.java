@@ -2,10 +2,9 @@ package com.masaischool.productManagementSystem.daoImpl;
 
 import com.masaischool.productManagementSystem.dao.AdminDao;
 import com.masaischool.productManagementSystem.entity.Admin;
-import com.masaischool.productManagementSystem.entity.Category;
-import com.masaischool.productManagementSystem.entity.Product;
 import com.masaischool.productManagementSystem.utils.DBUtils;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
 
 
@@ -20,33 +19,28 @@ public class AdminDaoImpl implements AdminDao{
             Admin admin = (Admin) query.getSingleResult();
             return admin;
         } catch (Exception e) {}
+        finally {
+            em.close();
+        }
         return null;
     }
-
     @Override
-    public String changePassword(String newPassword,String username) throws Exception {
-        Admin admin = getAdmin(username);
-        if(admin == null){
-            throw new Exception("Invalid credential");
-        }
+    public boolean resetPassword(String username, String password) throws Exception {
+        Admin admin = null;
+       try{
+           admin = getAdmin(username);
+       } catch(Exception e){
+           throw new Exception("Invalid Credential");
+       }
+       if(admin == null){
+           throw new Exception("Invalid Credential");
+       }
+        admin.setPassword(password);
         EntityManager em = DBUtils.getEntityManager();
-        String q = "UPDATE Admin a SET password = :newPass WHERE username = :user";
-        Query query = em.createNamedQuery(q);
-        query.setParameter("newPass","newPassword");
-        query.setParameter("user","username");
-        String pass = (String)query.getSingleResult();
-        return pass;
-    }
-
-    @Override
-    public void addProduct(double price,String color, String specification, String manufacturer, int quantity, Category category) {
-        Category category1 = new Category();
-        Product product = new Product();
-        product.setPrice(200.0);
-        product.setColor("pink");
-        product.setSpecification("specification");
-        product.setManufacturer("manufacturer");
-        product.setQuantity(12);
-        product.setCategory(category1);
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        em.merge(admin);
+        et.commit();
+        return true;
     }
 }

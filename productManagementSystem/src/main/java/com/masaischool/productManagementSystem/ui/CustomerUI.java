@@ -4,7 +4,5 @@ import java.util.Scanner;
 
 public class CustomerUI {
 
-    public void customermMain(Scanner sc) {
-
-    }
+    public void customermMain(Scanner sc) {}
 }
