@@ -20,6 +20,9 @@ public class AdminUI {
                 case 1:
                     resetPassword(sc);
                     break;
+                case 2:
+                    addProduct(sc);
+                    break;
                 case 0:
                     System.out.println("Thank You");
                     break;
@@ -27,6 +30,9 @@ public class AdminUI {
                     System.out.println("Enter The Correct Choice");
             }
         } while(choice != 0);
+    }
+
+    private void addProduct(Scanner sc) {
     }
 
     private void resetPassword(Scanner sc) {
@@ -59,7 +65,7 @@ public class AdminUI {
 
     private void printAdminMenu() {
         System.out.println("1. Reset Password");
-        System.out.println("2. View All Products");
+        System.out.println("2. Add product");
         System.out.println("3. Delete Product");
     }
 }
