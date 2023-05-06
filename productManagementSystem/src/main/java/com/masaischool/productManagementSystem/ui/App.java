@@ -1,5 +1,6 @@
-package com.masaischool.productManagementSystem;
+package com.masaischool.productManagementSystem.ui;
 
+import com.masaischool.productManagementSystem.utils.DBUtils;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -9,8 +10,10 @@ import java.util.Scanner;
 public class App {
 
     public static void main( String[] args ){
-
+        EntityManager em = DBUtils.getEntityManager();
         Scanner sc = new Scanner(System.in);
+        AdminUI admin = new AdminUI();
+        CustomerUI customer = new CustomerUI();
         int choice = -1;
         do {
             System.out.println("Welcome To Product Management System");
@@ -20,10 +23,10 @@ public class App {
             choice = sc.nextInt();
             switch (choice){
                 case 1 :
-                    customerService();
+                    customer.customermMain(sc);
                     break;
                 case 2 :
-                    adminService();
+                    admin.adminMain(sc);
                     break;
                 case 0 :
                     System.out.println("Thank You ");
@@ -33,12 +36,5 @@ public class App {
 
         } while (choice != 0);
 
-    }
-
-    private static void adminService() {
-        
-    }
-
-    private static void customerService() {
     }
 }

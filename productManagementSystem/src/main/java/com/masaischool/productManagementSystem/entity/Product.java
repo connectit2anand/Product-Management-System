@@ -30,4 +30,15 @@ public class Product {
 	@ManyToOne
 	private Cart cart;
 
+	public Product(String productName, double price, String color, String specification, String manufacturer, int quantity, Category category, Orders order, Cart cart) {
+		this.productName = productName;
+		this.price = price;
+		this.color = color;
+		this.specification = specification;
+		this.manufacturer = manufacturer;
+		this.quantity = quantity;
+		this.category = category;
+		this.order = order;
+		this.cart = cart;
+	}
 }
