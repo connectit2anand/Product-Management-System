@@ -3,7 +3,11 @@ package com.masaischool.productManagementSystem.serviceImpl;
 import com.masaischool.productManagementSystem.dao.AdminDao;
 import com.masaischool.productManagementSystem.daoImpl.AdminDaoImpl;
 import com.masaischool.productManagementSystem.entity.Admin;
+import com.masaischool.productManagementSystem.entity.Category;
+import com.masaischool.productManagementSystem.entity.Product;
 import com.masaischool.productManagementSystem.service.AdminService;
+
+import java.util.List;
 
 public class AdminServiceImpl implements AdminService{
 
@@ -30,8 +34,51 @@ public class AdminServiceImpl implements AdminService{
 		} catch (Exception e) {
 			System.out.println(e.getMessage());;
 		}
+	}
+
+	@Override
+	public List<Category> getAllCategory() {
+		AdminDao ad = new AdminDaoImpl();
+		List<Category> categoryList =  ad.getAllCategory();
+		return categoryList;
+	}
+
+	@Override
+	public void addNewCategory(Category category) {
+		AdminDao ad = new AdminDaoImpl();
+		ad.addNewCategory(category);
+	}
+
+	@Override
+	public List<Product> getAllProduct() {
+		AdminDao ad = new AdminDaoImpl();
+		List<Product> productList = ad.getAllProduct();
+		return productList;
+	}
+
+	@Override
+	public void updateProduct(Product product) {
+		AdminDao ad = new AdminDaoImpl();
+		ad.updateProduct(product);
+	}
+
+	@Override
+	public Product getProductById(int productId) {
+		AdminDao ad = new AdminDaoImpl();
+		Product product = ad.getProductById(productId);
+		return product;
+	}
+
+	@Override
+	public void updateCategory(Category category) {
+		AdminDao ad = new AdminDaoImpl();
+		ad.updateCategory(category);
 
 	}
 
-
+	@Override
+	public Category getCategoryById(int catId) {
+		AdminDao ad = new AdminDaoImpl();
+		return ad.getCategoryById(catId);
+	}
 }
