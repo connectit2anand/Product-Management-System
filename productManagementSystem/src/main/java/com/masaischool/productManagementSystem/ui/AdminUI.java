@@ -34,10 +34,13 @@ public class AdminUI {
                     break;
                 case 3:
                     viewCategoryList();
+                    break;
                 case 4:
                     viewAllProducts();
+                    break;
                 case 5:
                     updateProduct(sc);
+                    break;
                 case 0:
                     System.out.println("Thank You");
                     break;
@@ -51,11 +54,11 @@ public class AdminUI {
         AdminService as = new AdminServiceImpl();
         List<Category> categoryList = as.getAllCategory();
         if(categoryList == null || categoryList.size() == 0){
-            System.out.println("No Product Found");
-        } else {
-            for(Category c : categoryList){
-                System.out.println(c);
-            }
+            System.out.println("No Category Found");
+            return;
+        }
+        for(Category c : categoryList){
+            System.out.println(c);
         }
     }
 
@@ -70,9 +73,8 @@ public class AdminUI {
             }
             System.out.println("1 Add Product in New Category");
             System.out.println("2 Add Product in Existing Category");
-            addOrUpdate(sc);
         }
-
+        addOrUpdate(sc);
     }
 
     private void addOrUpdate(Scanner sc) {
@@ -84,9 +86,13 @@ public class AdminUI {
 
     private void addNewProductInExistingCategory(Scanner sc) {
         AdminService service = new AdminServiceImpl();
+        System.out.println("Enter the category id in which you want to add product.");
         int catId = sc.nextInt();
         Category category = service.getCategoryById(catId);
-        Product newProduct = new Product();
+        if(category == null) {
+            System.out.println("Invalid category id");
+            return;
+        }
         List<Product> productList = category.getProducts();
         System.out.println("How many products you want to add in category_id " + catId);
         int numberOfNewProducts = sc.nextInt();
@@ -110,60 +116,48 @@ public class AdminUI {
 
     private void updateProduct(Scanner sc) {
         AdminService as = new AdminServiceImpl();
-        List<Category> categoryList = as.getAllCategory();
-        if(categoryList == null){
+        List<Product> products = as.getAllProduct();
+        if(products == null || products.size() == 0) {
             System.out.println("Product not available");
             return;
-        } else {
-            for(Category c : categoryList){
-                System.out.println(c.getProducts());
-            }
         }
+        products.forEach(System.out :: println);
         System.out.println("Please select product id which you want to update");
         int productId = sc.nextInt();
-        System.out.println("Please Choose The Product Id Which You Want To Update: "+ productId);
         Product product = as.getProductById(productId);
         if(product == null){
-            System.out.println("Please Enter Valid Product Id");
+            System.out.println("Invalid product id.");
             return;
         }
-        System.out.println("1. price");
-        double price = sc.nextDouble();
-        product.setPrice(price);
-
-        System.out.println("2. color");
-        String color = sc.next();
-        product.setColor(color);
-
-        System.out.println("3. specification");
-        String specification = sc.next();
-        product.setSpecification(specification);
-
-        System.out.println("4. manufacturer");
-        String manufacturer = sc.next();
-        product.setManufacturer(manufacturer);
-
-        System.out.println("5. quantity");
-        int quantity = sc.nextInt();
-        product.setQuantity(quantity);
-
-        System.out.println("6. product name");
+        System.out.println("Enter new product name");
         String productName = sc.next();
         product.setProductName(productName);
 
-        as.updateProduct(product);
-//        EntityManager em = DBUtils.getEntityManager();
-//        EntityTransaction et = em.getTransaction();
-//        et.begin();
-//        em.persist(product);
-//        et.commit();
-//        em.close();
-//        as.updateProduct(product);
+        System.out.println("Enter new price");
+        double price = sc.nextDouble();
+        product.setPrice(price);
 
+        System.out.println("Enter new color");
+        String color = sc.next();
+        product.setColor(color);
+
+        System.out.println("Enter new specification");
+        String specification = sc.next();
+        product.setSpecification(specification);
+
+        System.out.println("Enter new manufacturer");
+        String manufacturer = sc.next();
+        product.setManufacturer(manufacturer);
+
+        System.out.println("Enter new quantity");
+        int quantity = sc.nextInt();
+        product.setQuantity(quantity);
+        as.updateProduct(product);
+        System.out.println("Product Successfully updated");
     }
 
     private void addNewProduct(Scanner sc) {
-        System.out.println("Enter the following details");
+//        System.out.println("Enter the following details");
         Category category = new Category();
         System.out.println("Enter the category name");
         String categoryName = sc.next();
@@ -205,11 +199,12 @@ public class AdminUI {
         List<Product> productList = as.getAllProduct();
         if(productList == null){
             System.out.println("No Product Found");
-        } else {
-            for(Product p : productList){
-                System.out.println(p);
-            }
+            return;
         }
+        for(Product p : productList){
+            System.out.println(p);
+        }
+
     }
 
     private boolean login(Scanner sc) {
@@ -233,5 +228,6 @@ public class AdminUI {
         System.out.println("2. Add product");
         System.out.println("3. View Category List");
         System.out.println("4. View All Products");
+        System.out.println("5. Update Product");
     }
 }
