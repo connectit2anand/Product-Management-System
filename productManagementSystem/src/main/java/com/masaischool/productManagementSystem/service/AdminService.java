@@ -22,4 +22,5 @@ public interface AdminService {
     void updateCategory(Category category);
 
     Category getCategoryById(int catId);
+
 }
