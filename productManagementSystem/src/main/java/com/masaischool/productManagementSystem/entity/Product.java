@@ -1,13 +1,9 @@
 package com.masaischool.productManagementSystem.entity;
 
 import jakarta.persistence.*;
-//import lombok.AllArgsConstructor;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
 
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
+
+@NamedNativeQuery(name="getProductList",query="SELECT * FROM Product",resultClass = Product.class)
 @Entity
 public class Product {
 	@Id

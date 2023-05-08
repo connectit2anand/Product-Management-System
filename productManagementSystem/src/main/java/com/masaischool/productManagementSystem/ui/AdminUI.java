@@ -157,7 +157,7 @@ public class AdminUI {
     }
 
     private void addNewProduct(Scanner sc) {
-//        System.out.println("Enter the following details");
+
         Category category = new Category();
         System.out.println("Enter the category name");
         String categoryName = sc.next();
@@ -204,7 +204,6 @@ public class AdminUI {
         for(Product p : productList){
             System.out.println(p);
         }
-
     }
 
     private boolean login(Scanner sc) {

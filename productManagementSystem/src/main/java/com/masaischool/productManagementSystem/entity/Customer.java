@@ -1,19 +1,12 @@
 package com.masaischool.productManagementSystem.entity;
-
+import com.masaischool.productManagementSystem.ui.CustomerUI;
 import jakarta.persistence.*;
-//import lombok.AllArgsConstructor;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
-
 import java.util.List;
-import java.util.Set;
 
 @Entity
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
 @NamedQuery(name = "checkCustomerUserName", query = "select c from Customer c where c.username = :username")
 @NamedQuery(name="isUserNamePasswordCorrect",query="SELECT c from Customer c WHERE c.username = :user AND c.password = :pass")
+
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
