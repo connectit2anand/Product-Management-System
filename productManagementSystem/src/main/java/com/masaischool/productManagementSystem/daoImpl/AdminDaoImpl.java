@@ -110,4 +110,16 @@ public class AdminDaoImpl implements AdminDao{
         em.close();
         return categroy;
     }
+
+    @Override
+    public void deleteProduct(int productId) {
+        String q = "delete from Product p where p.productId =: id";
+        EntityManager em = DBUtils.getEntityManager();
+        Query query = em.createQuery(q);
+        query.setParameter("id", productId);
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        query.executeUpdate();
+        et.commit();
+    }
 }

@@ -81,4 +81,25 @@ public class AdminServiceImpl implements AdminService{
 		AdminDao ad = new AdminDaoImpl();
 		return ad.getCategoryById(catId);
 	}
+
+	@Override
+	public void deleteProduct(int productId) throws Exception {
+		Product product = getProductById(productId);
+		if(product == null) {
+			throw new Exception("Invalid product id");
+		}
+		Category category = product.getCategory();
+		List<Product> products = category.getProducts();
+		for(int i = 0; i < products.size(); ++ i) {
+			Product currentProduct = products.get(i);
+			if(currentProduct.getProductId() == productId) {
+				products.remove(i);
+				break;
+			}
+		}
+		category.setProducts(products);
+		AdminDao dao = new AdminDaoImpl();
+		dao.updateCategory(category);
+		dao.deleteProduct(productId);
+	}
 }

@@ -21,4 +21,6 @@ public interface AdminDao {
     void updateCategory(Category category);
 
     Category getCategoryById(int catId);
+
+    void deleteProduct(int productId);
 }

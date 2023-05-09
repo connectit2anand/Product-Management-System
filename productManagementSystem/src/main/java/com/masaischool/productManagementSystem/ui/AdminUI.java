@@ -41,6 +41,9 @@ public class AdminUI {
                 case 5:
                     updateProduct(sc);
                     break;
+                case 6:
+                    deleteProduct(sc);
+                    break;
                 case 0:
                     System.out.println("Thank You");
                     break;
@@ -48,6 +51,20 @@ public class AdminUI {
                     System.out.println("Enter The Correct Choice");
             }
         } while(choice != 0);
+    }
+
+    private void deleteProduct(Scanner sc) {
+        AdminService service = new AdminServiceImpl();
+        List<Product> productList = service.getAllProduct();
+        productList.forEach(System.out :: println);
+        System.out.println("Enter the product id which you want to delete");
+        int productId = sc.nextInt();
+        try {
+            service.deleteProduct(productId);
+            System.out.println("Product with id " + productId + " successfully deleted");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void viewCategoryList() {
@@ -228,5 +245,6 @@ public class AdminUI {
         System.out.println("3. View Category List");
         System.out.println("4. View All Products");
         System.out.println("5. Update Product");
+        System.out.println("6. Delete Product");
     }
 }

@@ -23,4 +23,5 @@ public interface AdminService {
 
     Category getCategoryById(int catId);
 
+    void deleteProduct(int productId) throws Exception;
 }

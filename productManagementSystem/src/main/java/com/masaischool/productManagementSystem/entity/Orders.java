@@ -14,7 +14,7 @@ public class Orders {
 	private LocalDate orderDate;
 
 	@ManyToOne
-	@JoinColumn(name = "curstomer_id")
+	@JoinColumn(name = "customer_id")
 	private Customer customer;
 	private int productId;
 	private int quantity;
