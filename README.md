@@ -1,5 +1,5 @@
 # Online_Shopping_Application(BadaBazar.com)
-<img src="https://github.com/connectit2anand/dusty-jewel-3645/tree/main/productManagementSystem/src/main/resources/images/image.png" width="25%">
+<img src="https://github.com/connectit2anand/dusty-jewel-3645/tree/main/productManagementSystem/images/image.png" width="25%">
 
 # striped-hammer-7479
 
