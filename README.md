@@ -1,6 +1,8 @@
 # Online_Shopping_Application(BadaBazar.com)
-![Logo](https://github.com/connectit2anand/dusty-jewel-3645/tree/main/productManagementSystem/images/image.png?raw=true)
+![Logo](https://github.com/connectit2anand/dusty-jewel-3645/blob/main/productManagementSystem/images/image.png?raw=true)
 
+![Logo](https://github.com/connectit2anand/dusty-jewel-3645/blob/main/productManagementSystem/images/p1.png?raw=true)
+		
 # offbeat-vest-9571
 
 BadaBazar.com is a console based  application which is used by admin and their Customer for online shopping 
