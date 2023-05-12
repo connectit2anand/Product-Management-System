@@ -1,6 +1,6 @@
 # Online_Shopping_Application(BadaBazar.com)
 <img src="https://github.com/connectit2anand/dusty-jewel-3645/blob/main/productManagementSystem/images/image.png" width="25%">
-![ER Diagram](https://github.com/connectit2anand/dusty-jewel-3645/blob/main/productManagementSystem/images/p1.png?raw=true)
+![Logo](https://github.com/connectit2anand/dusty-jewel-3645/blob/main/productManagementSystem/images/p1.png?raw=true)
 		
 # offbeat-vest-9571
 
